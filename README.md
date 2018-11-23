@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/netguru-code-college/krk-18-avengers.svg?branch=master)](https://travis-ci.org/netguru-code-college/krk-18-avengers)
 # Team Avengers application - NCC Kraków Nov 2018
 
 This README would normally document whatever steps are necessary to get the
