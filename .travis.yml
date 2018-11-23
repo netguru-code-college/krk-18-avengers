@@ -12,6 +12,6 @@ deploy:
   run: rake db:migrate
   app: team-avengers
     api_key:
-      secure: "Replace me!"
+      secure: "Replace me! Let's test Travis CI"
   on:
     repo: netguru-code-college/krk-18-avengers
