@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @users = User.all
+    @users = User.all.pluck(:nick, :id)
   end
 
   def create
