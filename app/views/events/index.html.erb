@@ -1,0 +1,17 @@
+<p>
+<% @events.each do |event| %>
+  <%= event.name %>
+  <%= event.date %>
+  <%= event.image_url %>
+  <%= event.owner %>
+<% end %>
+</p>
+
+<p>
+<% @owned_events.each do |event| %>
+  <%= event.name %>
+  <%= event.date %>
+  <%= event.image_url %>
+  <%= event.owner.nick %>
+<% end %>
+</p>
