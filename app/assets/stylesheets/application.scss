@@ -1,12 +1,23 @@
 @import "bootstrap";
 
 // GENERAL SECTION
+body {
+  background-color: #fbf9fa;
+}
 a {
   color: white;
 }
 a:hover {
   color: white;
   text-decoration: none;
+}
+.btn-primary {
+  border: 1px solid #fd0054;
+  background-color: #fd0054;
+}
+.btn-primary:hover {
+  border: 1px solid #E4004C;
+  background-color: #E4004C;
 }
 // GENERAL SECTION
 
@@ -48,3 +59,10 @@ a:hover {
   margin: 0;
 }
 // END NAVBAR SECTION
+
+// CONTENT SECTION
+#content {
+  margin: 4% auto;
+  width: 960px;
+}
+// END CONTENT SECTION
