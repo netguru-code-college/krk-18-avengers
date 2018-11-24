@@ -1,1 +1,27 @@
 @import "bootstrap";
+
+// MAIN SCREEN SECTION
+.flexbox {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.white-background {
+  border-radius: 6px;
+  box-shadow: 2px 2px 6px #444;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#full-screen-background {
+  z-index: -1;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b207890c10d8df3f11b7a520ad57d177&auto=format&fit=crop&w=1500&q=80');
+}
+#splitter-introduction {
+  width: 50%;
+  color: white;
+}
+// END MAIN SCREEN SECTION
