@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts
   resources :events, only: [:index, :show, :create, :new]
   
   root 'main_screen#index'
