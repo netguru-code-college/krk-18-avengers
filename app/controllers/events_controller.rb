@@ -16,8 +16,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.assign_attributes(owner_id: current_user, image_url: @image)
+    @event = current_user.owned_events.build(event_params.merge(image_url: @image))
     if @event.save
       redirect_to event_path(@event)
     else
@@ -27,7 +26,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :date, :image_url)
+    params.require(:event).permit(:name, :date)
   end
 
   def fetch_event_details
