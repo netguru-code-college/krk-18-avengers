@@ -1,5 +1,15 @@
 @import "bootstrap";
 
+// GENERAL SECTION
+a {
+  color: white;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+// GENERAL SECTION
+
 // MAIN SCREEN SECTION
 .flexbox {
   height: 100vh;
@@ -25,3 +35,16 @@
   color: white;
 }
 // END MAIN SCREEN SECTION
+
+// NAVBAR SECTION
+.navbar {
+  justify-content: flex-end;
+}
+#debts {
+  margin: 0 4%;
+}
+#debts p {
+  text-align: right;
+  margin: 0;
+}
+// END NAVBAR SECTION
