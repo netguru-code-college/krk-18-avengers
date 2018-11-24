@@ -8,7 +8,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    current_user.events.find(params[:id])
+    @event = current_user.events.find_by(id: params[:id])
+    @event = current_user.owned_events.find_by(id: params[:id]) if @event.blank?
   end
 
   def new
@@ -17,6 +18,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.owned_events.build(event_params.merge(image_url: @image))
+    pry binding
     if @event.save
       redirect_to event_path(@event)
     else
