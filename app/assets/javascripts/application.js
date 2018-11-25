@@ -17,3 +17,15 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+    $('#multiselectForm')
+        .find('[name="users"]')
+            .multiselect({
+                // Re-validate the multiselect field when it is changed
+                onChange: function(element, checked) {
+                    $('#multiselectForm').bootstrapValidator('revalidateField', 'users');
+                }
+            })
+            .end()
+});
