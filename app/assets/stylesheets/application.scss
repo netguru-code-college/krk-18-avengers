@@ -3,21 +3,28 @@
 // GENERAL SECTION
 body {
   background-color: #fbf9fa;
+  font-family: 'Varela Round'
 }
+
 a {
-  color: white;
+  color: #3F597F;
 }
 a:hover {
-  color: white;
-  text-decoration: none;
+  color: #3F597F;
+  text-decoration: underline;
 }
+
+a:visited {
+    color: #ffffff;
+}
+
 .btn-primary {
-  border: 1px solid #fd0054;
-  background-color: #fd0054;
+  border: 1px solid #C14241;
+  background-color: #C14241;
 }
 .btn-primary:hover {
-  border: 1px solid #E4004C;
-  background-color: #E4004C;
+  border: 1px solid #642E34;
+  background-color: #642E34;
 }
 // GENERAL SECTION
 
@@ -28,19 +35,39 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
+
 .white-background {
   border-radius: 6px;
   box-shadow: 2px 2px 6px #444;
-  padding: 2%;
   background-color: rgba(255, 255, 255, 0.9);
 }
+
+.frame-signup {
+  padding: 2% 2% 0 2%;
+}
+
+.frame-signin {
+  padding: 2%;
+}
+
 #full-screen-background {
   z-index: -1;
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-image: url('https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b207890c10d8df3f11b7a520ad57d177&auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  background-image: url('https://www.hdwallpapersfreedownload.com/uploads/large/super-heroes/marvel-super-hero-captain-america-first-avenger-background-hd-wallpaper.jpg');
 }
+
+#events-page-background {
+  z-index: -1;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-image: url('https://szftlgs.com/wp-content/uploads/data/2018/1/10/black-widow-the-avengers-movie-hd-wallpaper-x-PIC-WSW3092793.jpeg')
+}
+
 #splitter-introduction {
   width: 50%;
   color: white;
