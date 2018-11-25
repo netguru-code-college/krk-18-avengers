@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @users = User.all
+    @users = User.all.pluck(:nick, :id)
   end
 
   def create
@@ -28,7 +28,8 @@ class EventsController < ApplicationController
   end
 
   private
+
   def event_params
-    params.require(:event).permit(:name, :date)
+    params.require(:event).permit(:name, :date, user_ids: [])
   end
 end
