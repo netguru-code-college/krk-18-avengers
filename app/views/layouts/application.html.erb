@@ -10,18 +10,21 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <div id="debts">
-        <p>You owe: 0 PLN</p>
-        <p>Others owe you: 0 PLN</p>
+    <% if current_user.present? %>
+      <div class="navbar">
+        <div id="debts">
+          <p>You owe: 0 PLN</p>
+          <p>Others owe you: 0 PLN</p>
+        </div>
+        <button type="button" class="btn btn-primary">
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        </button>
       </div>
-      <button type="button" class="btn btn-primary">
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-      </button>
-    </div>
-
-    <div id="content">
+      <div id="content">
+        <%= yield %>
+      </div>
+    <% else %>
       <%= yield %>
-    </div>
+    <% end %>
   </body>
 </html>
