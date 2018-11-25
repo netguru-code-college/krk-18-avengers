@@ -9,8 +9,8 @@
           <p>Participants costs:</p>
           <% @product.users_products.each do |users_product| %>
             * <%= users_product.user.nick %> - <%= users_product.amount.round(2) %> PLN<br />
-            <% if current_user == users_product.user && users_product.is_paid %>
-              <%= link_to 'Pay_bill', event_product_pay_bill_path(@product.event.id, @product.id), class: 'btn btn-primary' %>
+            <% if current_user == users_product.user && !users_product.is_paid %>
+              <%= link_to 'Pay bill', event_product_pay_bill_path(@product.event.id, @product.id), class: 'btn btn-primary' %>
             <% end %>
           <% end %>
         </div>
