@@ -10,6 +10,11 @@
           <% @event.products.each do |product| %>
             * <%= product.name %><br/>
           <% end %>
+          <br />
+          <p>Participants:</p>
+          <% @event.users.each do |user| %>
+            * <%= user.nick %><br/>
+          <% end %>
         </div>
         <br />
         <%= link_to "+ Add product", new_event_product_path(@event), class: 'btn btn-primary' %>
