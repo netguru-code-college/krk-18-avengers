@@ -10,6 +10,9 @@
             <%= users_product.user.nick %>
             <%= users_product.user.email %>
             <%= users_product.amount %>
+            <% if current_user == users_product.user && users_product.is_paid %>
+              <%= link_to 'Pay_bill', event_product_pay_bill_path(@product.event.id, @product.id), class: 'btn btn-primary' %>
+            <% end %>
           <% end %>
         </p>
       </div>
