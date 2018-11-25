@@ -10,9 +10,8 @@
     <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Montserrat' %>
   </head>
 
-  <body>
-    <% if current_user.present? %>
-      <div id="events-page-background"></div>
+  <% if current_user.present? %>
+    <body id="events-page-background">
       <div class="navbar">
         <div id="debts">
           <p>You owe: 0 PLN</p>
@@ -23,10 +22,12 @@
       <div id="content">
         <%= yield %>
       </div>
-    <% else %>
-      <div id="container">
-        <%= yield %>
-      </div>
-    <% end %>
-  </body>
+    </body>
+  <% else %>
+    <body id="full-screen-background">
+        <div id="container">
+          <%= yield %>
+        </div>
+    </body>
+  <% end %>
 </html>
