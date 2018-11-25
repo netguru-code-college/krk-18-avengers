@@ -3,6 +3,8 @@
   <%= f.text_field :name %>
   <%= f.label :price %>
   <%= f.number :price %>
-  <%= f.select(:user_ids, @users, {}, {multiple: true})%>
+  <%= f.fields_for :users_products do |up|%>
+    <%= up.select(:user_ids, @users, {}, {multiple: true})%>
+  <% end %>
   <%= f.submit %>
 <% end %>
