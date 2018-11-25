@@ -1,5 +1,15 @@
-
-<%= @event.owner.nick %>
-<%= @event.name %>
-<%= @event.date %>
-<%= @event.image_url %>
+<p class="text-center dashboard-title"><%= @event.name %></p><br />
+<div class="row">
+  <div class="card-center">
+    <div class="card-content">
+      <%= image_tag @event.image_url, class: 'card-img' %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @event.name %></h5>
+        <p class="card-text">
+          <%= @event.date.strftime("%d/%m/%Y") %> <%= @event.owner.nick %>
+          <br/>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
