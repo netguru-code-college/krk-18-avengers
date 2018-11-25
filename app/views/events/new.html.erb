@@ -13,7 +13,10 @@
     <div class="form-group">
       <%= f.select :user_ids, @users, {}, { multiple: true, class: 'form-control' }%>
     </div>
-    <%= f.submit "Create", class: 'btn btn-primary' %>
+    <div class="form-group">
+      <%= f.submit "Create", class: 'btn btn-primary' %>
+    </div>
   <% end %>
+  <%= link_to "Go to events list", events_path %>
   </div>
 </div>
