@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
 
   def pay_bill
     users_product = current_user.users_products
-      .find_by(id: params[:product_id])
+      .find_by(product_id: params[:product_id])
     users_product.update(is_paid: true)
     redirect_to event_product_path(params[:event_id], users_product.id)
   end
