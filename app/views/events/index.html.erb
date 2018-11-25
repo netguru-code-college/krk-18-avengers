@@ -3,15 +3,17 @@
 </p>
 
 <% unless @events.empty? %>
-  <p class="text-center">Your are invited for events</p>
+  <p class="text-center dashboard-title">Your are invited for events</p>
   <div class="row">
     <% @events.each do |event| %>
       <div class="col-md-4 bottom-buffer">
         <div class="card-content">
-          <%= image_tag event.image_url, class: 'card-img' %>
+          <%= link_to event do %>
+            <%= image_tag event.image_url, class: 'card-img' %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= event.name %></h5>
-            <p class="card-text"><%= event.date %> <%= event.owner.nick %></p>
+            <p class="card-text"><%= event.date.strftime("%d/%m/%Y") %> <%= event.owner.nick %></p>
           </div>
         </div>
       </div>
@@ -19,17 +21,21 @@
   </div>
 <% end %>
 <% unless @owned_events.empty? %>
-  <p class="text-center">Your events</p>
+  <p class="text-center dashboard-title">Your events</p>
   <div class="row">
     <% @owned_events.each do |event| %>
       <div class="col-md-4 bottom-buffer">
-        <div class="card-content">
-            <%= image_tag event.image_url, class: 'card-img' %>
+          <div class="card-content">
+            <%= link_to event do %>
+              <%= image_tag event.image_url, class: 'card-img' %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= event.name %></h5>
-              <p class="card-text"><%= event.date %> <%= event.owner.nick %></p>
+              <p class="card-text">
+                <%= event.date.strftime("%d/%m/%Y") %> <%= event.owner.nick %>
+              </p>
             </div>
-        </div>
+          </div>
       </div>
     <% end %>
   </div>
