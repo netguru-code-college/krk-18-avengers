@@ -1,12 +1,16 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @product = Product.new
-    @users = Event.find(params[:event_id]).users
+    @users = Event.find(params[:event_id]).users.pluck(:nick, :id)
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
+    @product = ProductBuilderService.new(
+      product_params, params[:event_id], current_user
+    ).call
+    if @product.valid?
       redirect_to event_product_path(@product)
     else
       render :new
@@ -17,7 +21,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(
-      :name, :price, users_products_attributes: [:is_paid]
+      :name, :price, user_ids: []
     )
   end
 end
