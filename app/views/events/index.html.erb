@@ -1,18 +1,35 @@
-<%= link_to '+ Add Event', new_event_path, class: 'btn btn-primary' %>
-<p>
-<% @events.each do |event| %>
-  <%= event.name %>
-  <%= event.date %>
-  <%= event.image_url %>
-  <%= event.owner.nick %>
-<% end %>
+<p class="text-center">
+  <%= link_to '+ Add Event', new_event_path, class: 'btn btn-primary' %>
 </p>
 
-<p>
-<% @owned_events.each do |event| %>
-  <%= event.name %>
-  <%= event.date %>
-  <%= event.image_url %>
-  <%= event.owner.nick %>
+<% unless @events.empty? %>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-md-4">
+        <div class="card white-background frame">
+          <%= image_tag event.image_url, class: 'card-img-top', style: "width: 15rem" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= event.name %></h5>
+            <p class="card-text"><%= event.date %> <%= event.owner.nick %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
-</p>
+
+<% unless @owned_events.empty? %>
+  <div class="row">
+    <% @owned_events.each do |event| %>
+      <div class="col-md-4">
+        <div class="card white-background frame">
+            <%= image_tag event.image_url, class: 'card-img-top', style: "width: 15rem" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= event.name %></h5>
+              <p class="card-text"><%= event.date %> <%= event.owner.nick %></p>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
