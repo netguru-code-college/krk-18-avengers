@@ -1,0 +1,9 @@
+<%= @product.event.owner.nick %>
+<%= @product.name %>
+<%= @product.price %>
+
+<% @product.users_products.each do |users_product| %>
+  <%= users_product.user.nick %>
+  <%= users_product.user.email %>
+  <%= users_product.amount %>
+<% end %>
