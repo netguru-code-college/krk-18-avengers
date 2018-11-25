@@ -1,5 +1,6 @@
-class ProductBuilderService
+# frozen_string_literal: true
 
+class ProductBuilderService
   def initialize(product_params, event_id, owner)
     @product_params = product_params
     @event_id = event_id
