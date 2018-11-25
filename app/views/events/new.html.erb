@@ -1,0 +1,7 @@
+<%= form_for @event do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.datetime_select(:date) %>
+  <%= f.select(:user_ids, @users, {}, {multiple: true})%>
+  <%= f.submit %>
+<% end %>
