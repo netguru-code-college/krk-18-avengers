@@ -8,7 +8,7 @@
           <p><%= @event.date.strftime("%d/%m/%Y") %> <%= @event.owner.nick %></p>
           <p>Product list:</p>
           <% @event.products.each do |product| %>
-            * <%= product.name %><br/>
+            * <%= link_to product.name, event_product_path(@event, product) %><br/>
           <% end %>
           <br />
           <p>Participants:</p>

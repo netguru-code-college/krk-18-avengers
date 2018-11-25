@@ -14,8 +14,8 @@
     <body id="events-page-background">
       <div class="navbar">
         <div id="debts">
-          <p>You owe: <%= current_user.users_debt_count %> PLN</p>
-          <p>Others owe you: <%= current_user.others_debt_count %> PLN</p>
+          <p>You owe: <%= current_user.users_debt_count.round(2) %> PLN</p>
+          <p>Others owe you: <%= current_user.others_debt_count.round(2) %> PLN</p>
         </div>
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary') %>
       </div>
