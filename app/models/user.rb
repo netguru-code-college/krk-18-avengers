@@ -11,6 +11,5 @@ class User < ApplicationRecord
   has_many :products, through: :users_products
   has_many :owned_events, class_name: 'Event', foreign_key: :owner_id
 
-  def xxx
-  end
+  def xxx; end
 end
