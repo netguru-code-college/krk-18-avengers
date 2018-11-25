@@ -4,10 +4,15 @@
     <div class="card-content" style="width: 500px">
       <%= image_tag @event.image_url, class: 'card-img' %>
       <div class="card-body">
-        <p class="card-text">
-          <%= @event.date.strftime("%d/%m/%Y") %> <%= @event.owner.nick %>
-          <br/>
-        </p>
+        <div class="card-text">
+          <p><%= @event.date.strftime("%d/%m/%Y") %> <%= @event.owner.nick %></p>
+          <p>Product list:</p>
+          <% @event.products.each do |product| %>
+            * <%= product.name %><br/>
+          <% end %>
+        </div>
+        <br />
+        <%= link_to "+ Add product", new_event_product_path(@event), class: 'btn btn-primary' %>
       </div>
     </div>
   </div>

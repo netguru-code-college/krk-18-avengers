@@ -1,8 +1,22 @@
-<%= form_for @product, url: event_products_path do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :price %>
-  <%= f.number_field :price %>
-  <%= f.select(:user_ids, @users, {}, {multiple: true}) %>
-  <%= f.submit %>
-<% end %>
+<p class="text-center dashboard-title">Add new product</p><br />
+<div class="row">
+  <div class="span6 card-background card-center">
+  <%= form_for @product, url: event_products_path do |f| %>
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :price %><br />
+      <%= f.number_field :price, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.select :user_ids, @users, {}, { multiple: true, class: 'form-control' }%>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Create", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  <%= link_to "Go to event", event_path(params[:event_id]) %>
+  </div>
+</div>

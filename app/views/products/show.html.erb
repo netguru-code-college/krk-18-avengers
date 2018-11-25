@@ -1,9 +1,20 @@
-<%= @product.event.owner.nick %>
-<%= @product.name %>
-<%= @product.price %>
-
-<% @product.users_products.each do |users_product| %>
-  <%= users_product.user.nick %>
-  <%= users_product.user.email %>
-  <%= users_product.amount %>
-<% end %>
+<p class="text-center dashboard-title"><%= @product.name %></p><br />
+<div class="row">
+  <div class="card-center">
+    <div class="card-content" style="width: 500px">
+      <div class="card-body">
+        <p class="card-text">
+          <%= @product.event.owner.nick %><br />
+          <%= @product.price %><br />
+          <% @product.users_products.each do |users_product| %>
+            <%= users_product.user.nick %>
+            <%= users_product.user.email %>
+            <%= users_product.amount %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<p class="text-center"><%= link_to "Go to events list", events_path %></p>
