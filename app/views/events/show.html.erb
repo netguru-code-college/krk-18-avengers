@@ -1,15 +1,26 @@
 <p class="text-center dashboard-title"><%= @event.name %></p><br />
 <div class="row">
   <div class="card-center">
-    <div class="card-content">
+    <div class="card-content" style="width: 500px">
       <%= image_tag @event.image_url, class: 'card-img' %>
       <div class="card-body">
-        <h5 class="card-title"><%= @event.name %></h5>
-        <p class="card-text">
-          <%= @event.date.strftime("%d/%m/%Y") %> <%= @event.owner.nick %>
-          <br/>
-        </p>
+        <div class="card-text">
+          <p><%= @event.date.strftime("%d/%m/%Y") %> <%= @event.owner.nick %></p>
+          <p>Product list:</p>
+          <% @event.products.each do |product| %>
+            * <%= product.name %><br/>
+          <% end %>
+          <br />
+          <p>Participants:</p>
+          <% @event.users.each do |user| %>
+            * <%= user.nick %><br/>
+          <% end %>
+        </div>
+        <br />
+        <%= link_to "+ Add product", new_event_product_path(@event), class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
 </div>
+<br />
+<p class="text-center"><%= link_to "Go to events list", events_path %></p>

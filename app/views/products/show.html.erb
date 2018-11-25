@@ -1,12 +1,23 @@
-<%= @product.event.owner.nick %>
-<%= @product.name %>
-<%= @product.price %>
-
-<% @product.users_products.each do |users_product| %>
-  <%= users_product.user.nick %>
-  <%= users_product.user.email %>
-  <%= users_product.amount %>
-  <% if current_user == users_product.user && users_product.is_paid %>
-    <%= link_to 'Pay_bill', event_product_pay_bill_path(@product.event.id, @product.id)%>
-  <% end %>
-<% end %>
+<p class="text-center dashboard-title"><%= @product.name %></p><br />
+<div class="row">
+  <div class="card-center">
+    <div class="card-content" style="width: 500px">
+      <div class="card-body">
+        <p class="card-text">
+          <%= @product.event.owner.nick %><br />
+          <%= @product.price %><br />
+          <% @product.users_products.each do |users_product| %>
+            <%= users_product.user.nick %>
+            <%= users_product.user.email %>
+            <%= users_product.amount %>
+            <% if current_user == users_product.user && users_product.is_paid %>
+              <%= link_to 'Pay_bill', event_product_pay_bill_path(@product.event.id, @product.id), class: 'btn btn-primary' %>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<p class="text-center"><%= link_to "Go to event", event_path(@product.event.id) %></p>

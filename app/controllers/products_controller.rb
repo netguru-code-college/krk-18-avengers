@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
       product_params, params[:event_id], current_user
     ).call
     if @product.valid?
-      redirect_to event_product_path(@product)
+      redirect_to event_product_path(params[:event_id], @product.id)
     else
       render :new
     end
